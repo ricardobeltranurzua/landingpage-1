@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h2>Log in</h2>
+  <div class="row d-flex justify-content-center">
+    <div id="signin-form" class="col-md-4">
+      <h2>Iniciar Sesion</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
@@ -10,19 +10,19 @@
         </div>
 
         <div class="field">
-          <%= f.label :password %><br />
+          <%= f.label :Contraseña %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :Recuerdame %>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Ingresar", class: "btn btn-primary"%>
         </div>
       <% end %>
 
