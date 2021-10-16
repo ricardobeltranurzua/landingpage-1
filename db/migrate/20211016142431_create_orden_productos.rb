@@ -6,6 +6,7 @@ class CreateOrdenProductos < ActiveRecord::Migration[6.1]
       t.integer :cantidad
       t.decimal :precio
       t.string :instrucciones
+      t.decimal :descuento
 
       t.timestamps
     end
