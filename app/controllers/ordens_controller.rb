@@ -8,6 +8,9 @@ class OrdensController < ApplicationController
   def index
     @ordens = Orden.all
   end
+  def carrito
+
+  end
 
   # GET /ordens/1
   # GET /ordens/1.json
