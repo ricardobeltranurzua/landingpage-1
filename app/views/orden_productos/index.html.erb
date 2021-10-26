@@ -22,9 +22,9 @@
         <td><%= orden_producto.cantidad %></td>
         <td><%= orden_producto.precio %></td>
         <td><%= orden_producto.instrucciones %></td>
-        <td><%= link_to 'Show', orden_producto %></td>
-        <td><%= link_to 'Edit', edit_orden_producto_path(orden_producto) %></td>
-        <td><%= link_to 'Destroy', orden_producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', orden_producto %></td>
+        <td><%= link_to 'Editar', edit_orden_producto_path(orden_producto) %></td>
+        <td><%= link_to 'Eliminar', orden_producto, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Orden Producto', new_orden_producto_path %>
+<%= link_to 'Nuevo Orden Producto', new_orden_producto_path %>

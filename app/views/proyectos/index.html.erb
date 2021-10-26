@@ -23,7 +23,7 @@
           <td><%= proyecto.descripcion %></td>
           <td><%= link_to 'Mostar', proyecto, class: "btn btn-primary" %></td>
           <td><%= link_to 'Editar', edit_proyecto_path(proyecto), class: "btn btn-secondary" %></td>
-          <td><%= link_to 'Eliminar', proyecto,  method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to 'Eliminar', proyecto,  method: :delete, data: { confirm: 'Esta seguro?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
@@ -31,7 +31,7 @@
 
   <br>
 
-  <%= link_to 'New Proyecto', new_proyecto_path, class:"btn btn-primary mb-4" %>
+  <%= link_to 'Nuevo Proyecto', new_proyecto_path, class:"btn btn-primary mb-4" %>
   </div>
   </div>
 </div>

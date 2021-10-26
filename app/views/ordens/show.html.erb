@@ -1,3 +1,6 @@
+<style type="text/css" media="print">
+
+</style>
 <table class="table">
   <tbody>
     <tr>
@@ -11,7 +14,7 @@
             </tr>
             <tr>
               <td>
-                <strong># Cedula: </strong>
+                <strong>Cedula: </strong>
                 <%= @orden.cliente.nif %>
               </td>
             </tr>
@@ -23,24 +26,24 @@
           <tbody>
             <tr>
               <td>
-              <strong># Orden: </strong>
+              <strong>Orden: </strong>
               <%= @orden.codigo %>
               </td>
             </tr>
             <tr>
-              <td>Fec. Proceso: 
+              <td>Fecha Proceso: 
                 <%= @orden.proceso_text %>
               </td>
             </tr>
             <tr>
               <td>
-              <strong>Fec. Entrega: </strong>
+              <strong>Fecha Entrega: </strong>
                 <%= @orden.entrega_text %>      
               </td>
             </tr>
             <tr>
               <td>
-              <strong>Fec. Cierre: </strong>
+              <strong>Fecha Cierre: </strong>
                 <%= @orden.cierre_text %>
               </td>
             </tr>
@@ -80,30 +83,7 @@
   </tbody>
 </table>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @orden.cliente_id %>
-</p>
 
-<p>
-  <strong>Codigo:</strong>
-  <%= @orden.codigo %>
-</p>
-
-<p>
-  <strong>Proceso:</strong>
-  <%= @orden.proceso %>
-</p>
-
-<p>
-  <strong>Entrega:</strong>
-  <%= @orden.entrega %>
-</p>
-
-<p>
-  <strong>Cierre:</strong>
-  <%= @orden.cierre %>
-</p>
-
-<%= link_to 'Edit', edit_orden_path(@orden) %> |
-<%= link_to 'Back', ordens_path %>
+<%= link_to 'Editar', edit_orden_path(@orden), class: "btn btn-secondary d-print-none" %> 
+<%= link_to 'Atrás', ordens_path, class: "btn btn-danger d-print-none" %>
+<a onclick="window.print()" class="btn btn-primary d-print-none">Imprimir</a>

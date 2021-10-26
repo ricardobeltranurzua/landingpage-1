@@ -3,14 +3,14 @@ rel="stylesheet" >
 
 <p id="notice"><%= notice %></p>
 
-<h1>Categoria</h1>
+<h1>Categorias</h1>
 
 <table id="myTable" class="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Imagen</th>
-      <th>N Productos</th>
+      <th>N° Productos</th>
       <th></th>
       <th></th>
       <th></th>
@@ -40,6 +40,10 @@ rel="stylesheet" >
 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-$('#myTable').DataTable();
+$('#myTable').DataTable({
+language: { 
+  url: "//cdn.datatables.net/plug-ins/1.11.3/i18n/es-cl.json"
+}
+});
 });
 </script>

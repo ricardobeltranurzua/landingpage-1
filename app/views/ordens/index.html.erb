@@ -26,9 +26,9 @@
         <td><%= orden.proceso_text %></td>
         <td><%= orden.entrega %></td>
         <td><%= orden.cierre %></td>
-        <td><%= link_to 'Show', orden %></td>
-        <td><%= link_to 'Edit', edit_orden_path(orden) %></td>
-        <td><%= link_to 'Destroy', orden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', orden %></td>
+        <td><%= link_to 'Editar', edit_orden_path(orden) %></td>
+        <td><%= link_to 'Eliminar', orden, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,12 +36,16 @@
 
 <br>
 
-<%= link_to 'New Orden', new_orden_path %>
+<%= link_to 'Nueva Orden', new_orden_path %>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-$('#myTable').DataTable();
+$('#myTable').DataTable({
+language: { 
+  url: "//cdn.datatables.net/plug-ins/1.11.3/i18n/es-cl.json"
+}
+});
 });
 </script>
