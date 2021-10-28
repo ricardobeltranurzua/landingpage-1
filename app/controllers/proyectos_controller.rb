@@ -4,6 +4,9 @@ class ProyectosController < ApplicationController
   before_action :set_proyecto, only: [:show, :edit, :update, :destroy]
   # GET /proyectos
   # GET /proyectos.json
+  
+  layout "admin"
+
   def index
     @proyectos = Proyecto.all
   end
