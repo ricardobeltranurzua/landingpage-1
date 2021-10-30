@@ -1,0 +1,25 @@
+<h1>Usuarios</h1>
+<table class="table">
+  <thead >
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<tbody>
+  <% @usuarios.each do |t| %>
+  <tr>
+    <th><%= t.id %></th>
+    <th><%= t.email %></th>
+    <th><a href="/admin/users/<%= t.id %>/show">Mostrar</a></th>
+    <th><a href="/admin/users/<%= t.id %>/show">Editar</th>
+    <th><a href="/admin/users/<%= t.id %>/show">Eliminar</th>
+  </tr>
+  <% end %>
+</tbody>
+
+</table>
+

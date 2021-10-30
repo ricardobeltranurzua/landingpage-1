@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :proyectos
   root "landpage#index"
 
+  get 'admin/users', to: "landpage#users"
+  get 'admin/users/:id/show', to: "landpage#users_show"
   get 'landpage/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -13,43 +13,63 @@ class OrdensController < ApplicationController
     @qty = params[:cantidad]
     @producto_id = params[:producto_id]
 
+    #Buscamos al cliente asociado al usuario
     cliente = Cliente.where(user_id: current_user.id).first
     if cliente.blank?
+      #En caso de no existir, lo creamos
       cliente = Cliente.new
-      cliente.nombres = "Ricardo"
-      cliente.apell_pat = "Beltran"
-      cliente.apell_mat = "Urzua"
-      cliente.nif = "222226767"
-      cliente.save()
-    end 
-    #buscar la ultima orden del cliente encontrado
-    #ejemplo: sus ordenes son : 50, 60, 70, 80. 90
-    # orden descendente => 90, 80, 70, 60
-
-    ord = Orden.where(cliente_id: cliente.id).order("id desc").first
+      cliente.nombres = "---"
+      cliente.apell_pat = "---"
+      cliente.apell_mat = "---"
+      cliente.nif = "---"
+      cliente.save
+    end
+    #Buscar la ultima orden del cliente encontrado
+    # Ejemplo: Sus ordenes son: 50, 60, 70, 80, 90
+    # Orden descendente => 90, 80, 70, 60, 50
+    ord = Orden.where(cliente_id: cliente.id)
+      .order("id desc")
+      .first
+      
     if ord.blank?
       ord = Orden.new
       ord.cliente_id = cliente.id
-      # cuenta de ordenes es 45: => 0045
+      # Cuenta de ordenes es: 45 => 0045
       ord.codigo = "#{Orden.all.count + 1}".rjust(4, "0")
       ord.proceso = "2016-10-30"
-      ord.entrega = "20116-10-30"
+      ord.entrega = "2016-10-30"
       ord.cierre = "2016-10-30"
       ord.save()
     end
-    #asocia la orden con el producto, pero primero la busca
+    @orden = ord
+    if @qty.blank? or @producto_id.blank?
+      render
+      return
+    end
 
-    oprod = OrdenProducto.where(orden_id: ord.id, producto_id: @producto_id).first
+    @producto_obj = Producto.find(@producto_id)
+    
+
+    #Asocia la orden con el producto, pero primero la busca
+    oprod = OrdenProducto
+      .where(orden_id: ord.id, 
+        producto_id: @producto_id).first
 
     if oprod.blank?
-      # si no existe la asocia Producto vs Orden, lo crea
-
+      #Si no existe la asociacion Producto vs Orden, lo crea
       oprod = OrdenProducto.new
       oprod.producto_id = @producto_id
       oprod.orden_id = ord.id
       oprod.cantidad = @qty
+      oprod.precio = @producto_obj.precio
       oprod.instrucciones = "---"
       oprod.descuento = 0
+      oprod.save
+    else
+      #Si la relacion Producto Vs Orden ya existe.
+      # Puedo actualizar el precio y cantidad.
+      oprod.precio = @producto_obj.precio
+      oprod.cantidad = @qty
       oprod.save
     end
     @orden = ord

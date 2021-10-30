@@ -20,22 +20,28 @@ Categorium.create([{
 Producto.create([{
   nombre: "Integrales",
   descripcion: "semilla de calabaza",
-  imagen: "i.imgur.com/Z7mMWrM.jpg", categorium_id: Categorium.first.id 
+  imagen: "i.imgur.com/Z7mMWrM.jpg", 
+  precio: 12,
+  categorium_id: Categorium.first.id 
   }, 
   { 
   nombre: "Centeno",
   descripcion: "cebolla caramelizada",
-  imagen: "i.imgur.com/Z7mMWrM.jpg", categorium_id: Categorium.where(nombre: "Panes").first.id 
+  imagen: "i.imgur.com/Z7mMWrM.jpg", 
+  precio: 15,
+  categorium_id: Categorium.where(nombre: "Panes").first.id 
   },
   { 
   nombre: "Tapaditos",
   descripcion: "para coctel",
-  imagen: "i.imgur.com/Z7mMWrM.jpg", categorium_id: Categorium.where(nombre: "Servicios").first.id 
+  imagen: "i.imgur.com/Z7mMWrM.jpg", 
+  precio: 45,
+  categorium_id: Categorium.where(nombre: "Servicios").first.id 
   }, 
   {
   nombre: "Pastel Chocolate",
   descripcion: "60 % de cacao",
   imagen: "https://i.imgur.com/Z7mMWrM.jpg", 
-  categorium_id: Categorium.last.id
-   
+  precio: 25,
+  categorium_id: Categorium.last.id   
 }])

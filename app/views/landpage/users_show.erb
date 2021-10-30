@@ -1,0 +1,14 @@
+<h1>Detalle de Staff</h1>
+
+<!-- mi variable se llama @roles -->
+<!-- usa each para repetir tantas como sea posible
+ la etiqueta option -->
+
+<form>
+<select>
+  <% @roles.each do |t| %>
+      <option value="<%= t.id %>"><%= t.nombre %></option>
+  <% end %>
+</select>
+<button class="btn btn-primary">Establecer rol</button>
+</form>
