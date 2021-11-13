@@ -5,7 +5,7 @@
  la etiqueta option -->
 
 <form>
-<select>
+<select class="form-control">
   <% @roles.each do |t| %>
       <option value="<%= t.id %>"><%= t.nombre %></option>
   <% end %>
