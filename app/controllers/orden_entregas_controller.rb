@@ -30,7 +30,12 @@ class OrdenEntregasController < ApplicationController
     oe.instrucciones = params[:instrucciones]
     oe.direccion = params[:direccion]
     oe.save
-    redirect_to "/ordens/confirmar"
+
+    orden = Orden.find(params[:orden_id])
+    orden.proceso = Time.zone.now
+    orden.save
+    
+    redirect_to "/ordens/confirmar?confirmado=#{orden.id}"
     return
     
     @orden_entrega = OrdenEntrega.new(orden_entrega_params)
